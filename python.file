@@ -1,0 +1,42 @@
+codes = []
+prices = []
+after_discount = []
+category = [0, 0, 0, 0, 0]
+
+while True: 
+  code = int(input("Enter item code (0 to stop): "))
+  if code == 0:
+    break
+  price = float(input("Enter a price: "))
+  codes.append(code)
+  prices.append(price)
+for i in range(codes):
+  if code >= 1000 and code <= 3000:
+    category [0] += 1
+    after_discount.append(prices[i] - (prices[i]* .15))
+  elif code >= 4000 and code <= 5000: 
+    category [1] += 1
+    after_discount.append(prices[i] - (prices[i]* .20))
+  elif code >= 5000 and code <= 7000:
+    category [2] += 1 
+    after_discount.append(prices[i] - (prices[i]* .25))
+  elif code >= 8000 and code <= 9999:
+    category [3] += 1 
+    after_discount.append(prices[i] - (prices[i]* .30))
+  
+  else:
+     category [4] += 1 
+     after_discount.append(prices[i] - (prices[i]* .05))
+print("\n\n%-20s %-20s %-20s\n\n"%("item code", "price", "after discount"))
+for i in range(len(codes)):
+  print("%-20d %-20.2f %-20.2f"%(codes[i], prices[i], after_discount[i] ))
+
+
+grand_total = sum(after_discount)
+print("Grand Total: ",grand_total )
+if grand_total > 100:
+  print("Congrats |!| you are eligible for 10% discount")
+  total = grand_total - (grand_total * .10)
+  print("After 10% discount your total is: ", total)
+
+ 
